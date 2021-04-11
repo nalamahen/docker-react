@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+befire_install
+  - docker build -t nalamahen/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true nalamahen/docker-react npm run test
+
